@@ -1,17 +1,18 @@
+// getting todays date
 var todaysDate = moment().format("dddd, MMM Do YYYY");
 $("#currentDay").html(todaysDate);
 
+// save button
 $(document).ready(function() {
     $(".save-btn").on("click", function() {
 
 var text = $(this).siblings(".discription").val();
 var time = $(this).parent().attr("id");
 
-//setInterval(updateDate, 1000);
 localStorage.setItem(time, text);
 
 })
-
+// updating hour 
 function updateHour() {
     var currentTime = moment().hours();
 
@@ -37,10 +38,6 @@ function updateHour() {
     })
 }
 
-// function updateDate() {
-//     $("#date").text(moment().format("dddd, MMMM Do - h:mm:ss a"));
-// }
-
 $("#hour-9 .discription").val(localStorage.getItem("hour-9"));
 $("#hour-10 .discription").val(localStorage.getItem("hour-10"));
 $("#hour-11 .discription").val(localStorage.getItem("hour-11"));
@@ -52,6 +49,4 @@ $("#hour-16 .discription").val(localStorage.getItem("hour-16"));
 $("#hour-17 .discription").val(localStorage.getItem("hour-17"));
 
 updateHour();
-// $("#currentDay").text(moment().format("dddd, MMMM Do"));
-
 })
